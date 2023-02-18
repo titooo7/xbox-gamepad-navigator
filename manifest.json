@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Gamepad Extension",
+  "version": "1.0",
+  "description": "A Chrome extension that maps gamepad events to keyboard, mouse and wheel events.",
+  "permissions": [
+    "activeTab",
+    "gamepad",
+	"alarms",
+    "tabs",
+	"<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+    "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
